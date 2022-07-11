@@ -1,0 +1,550 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+body {
+  padding: 10px;
+  background-color: #f6f6f6;
+}
+body::-webkit-scrollbar {
+  width: 0px;
+}
+#app .controlServer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: min-content;
+  padding: 20px 15px 20px 20px;
+  border: 1px solid rgba(255, 115, 0, 0.3);
+  background-color: white;
+  border-radius: 20px;
+}
+#app .controlServer .listIndicationServer .synchronization {
+  width: 35px;
+  height: 35px;
+}
+#app .controlServer .listIndicationServer .synchronization .liSynchronization {
+  margin-right: 10px;
+}
+#app .controlServer .listIndicationServer .synchronization line,
+#app .controlServer .listIndicationServer .synchronization path {
+  transition: all 700ms ease-in-out 100ms;
+  stroke: #34C924;
+}
+#app .controlServer .listIndicationServer .synchronization line {
+  transform-origin: 50% 52%;
+}
+#app .controlServer .listIndicationServer .synchronization.false line,
+#app .controlServer .listIndicationServer .synchronization.false path {
+  stroke: #ee204d;
+}
+#app .controlServer .listIndicationServer .synchronization.false line {
+  transform: rotate(135deg);
+}
+#app .controlServer li {
+  display: inline;
+}
+#app .controlServer li button {
+  margin-right: 30px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-family: "PTSans", "Helvetica", "Arial", sans-serif;
+  transition: all 500ms ease-in-out 50ms;
+  outline: none;
+  border: 1px solid transparent;
+  background-color: rgba(255, 115, 0, 0.9);
+  color: white;
+  border-radius: 10px;
+}
+#app .controlServer li button:hover {
+  border-color: rgba(255, 115, 0, 0.9);
+  background-color: white;
+  color: rgba(255, 115, 0, 0.9);
+}
+#app ul {
+  list-style: none;
+}
+#app input[type="number"] {
+  -moz-appearance: textfield;
+}
+#app input::-webkit-outer-spin-button,
+#app input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+#app .remove {
+  width: 25px;
+  height: 25px;
+}
+#app .remove svg {
+  width: 25px;
+  height: 25px;
+  transition: transform 700ms ease-in-out 100ms;
+}
+#app .remove svg path {
+  fill: rgba(191, 191, 191, 0.8);
+}
+#app .remove svg:hover {
+  transform: rotate(180deg);
+}
+#app .remove svg:hover path {
+  fill: #d75a4a;
+}
+#app .checkbox {
+  display: none;
+}
+#app .checkbox:checked + .check {
+  border-color: #d75a4a;
+}
+#app .checkbox:checked + .check:before {
+  opacity: 1;
+}
+#app .input {
+  border: 1px solid rgba(191, 191, 191, 0.8);
+  border-radius: 8px;
+  outline: none;
+  color: #737373;
+  font-size: 13px;
+  transition: border-color 500ms ease-in-out 50ms;
+}
+#app .input:hover,
+#app .input:focus {
+  border-color: rgba(255, 115, 0, 0.3);
+}
+#app .button1,
+#app .button2 {
+  border-radius: 5px;
+  font-family: "PTSans", "Helvetica", "Arial", sans-serif;
+  transition: all 500ms ease-in-out 50ms;
+  outline: none;
+  border-radius: 10px;
+}
+#app .button1 {
+  border: 1px solid transparent;
+  background-color: rgba(255, 115, 0, 0.9);
+  color: white;
+}
+#app .button1:hover {
+  border-color: rgba(255, 115, 0, 0.9);
+  background-color: white;
+  color: rgba(255, 115, 0, 0.9);
+}
+#app .button2 {
+  background-color: white;
+  margin-left: 20px;
+  border: 1px solid lightgray;
+}
+#app .button2:hover {
+  color: white;
+  border-color: transparent;
+  background-color: lightgray;
+}
+#app .check {
+  position: relative;
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: 1px solid rgba(191, 191, 191, 0.8);
+  border-radius: 50%;
+  margin-right: 10px;
+  transition: border-color 500ms ease-in-out 50ms;
+}
+#app .check:before {
+  position: absolute;
+  opacity: 0;
+  left: 2px;
+  top: 2px;
+  display: block;
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #d75a4a;
+  transition: opacity 500ms ease-in-out 50ms;
+}
+#app #createNewList {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  width: 100%;
+}
+#app #createNewList input[type="text"] {
+  width: 450px;
+  height: 50px;
+  margin-right: 20px;
+  padding: 6px 0 4px 10px;
+  font-size: 20px;
+}
+#app #createNewList button {
+  padding: 14px 28px;
+  font-size: 26px;
+}
+#app .app {
+  display: none;
+  margin-bottom: 100px;
+  opacity: 0;
+  overflow: hidden;
+}
+#app .app .title-list {
+  display: flex;
+  justify-content: center;
+  height: min-content;
+  margin-bottom: 40px;
+  font-family: "Andika", sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+}
+#app .app .title-list .remove-list {
+  margin-left: 10px;
+}
+#app .app .list {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+#app .app .list .sortPurchases {
+  position: absolute;
+  left: 300px;
+  top: -30px;
+}
+#app .app .list .sortPurchases .sortText {
+  font-size: 14px;
+  font-weight: 600;
+  font-family: Didact Gothic, sans-serif;
+}
+#app .app .list .sortPurchases .sortText span {
+  font-style: italic;
+  color: #0d61af;
+  transition: color 500ms 50ms ease-in-out;
+}
+#app .app .list .sortPurchases .sortText span:hover,
+#app .app .list .sortPurchases .sortText span.active {
+  color: #fc7b08;
+}
+#app .app .list .sortPurchases .sortingPanel {
+  position: absolute;
+  top: 25px;
+  left: 110px;
+  width: max-content;
+  padding: 3px 20px 6px 30px;
+  background: #fff;
+  box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.16);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: Didact Gothic, sans-serif;
+  transition: opacity 600ms 50ms ease-in-out;
+  opacity: 0;
+  z-index: 200;
+}
+#app .app .list .sortPurchases .sortingPanel.active {
+  opacity: 1;
+}
+#app .app .list .sortPurchases .sortingPanel li:not(:last-child) {
+  margin-bottom: 8px;
+}
+#app .app .list .sortPurchases .sortingPanel li > label {
+  display: flex;
+  align-items: center;
+}
+#app .app .list .filters {
+  min-width: 250px;
+  height: min-content;
+  padding: 20px 15px 20px 35px;
+  border: 1px solid rgba(255, 115, 0, 0.3);
+  background-color: white;
+  font-family: "Didact Gothic", sans-serif;
+  border-radius: 20px;
+}
+#app .app .list .filters > li {
+  margin-bottom: 25px;
+}
+#app .app .list .filters > li h3 {
+  font-family: "Andika", sans-serif;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+#app .app .list .filters > li input[type="number"] {
+  width: 200px;
+  margin-bottom: 10px;
+  padding: 6px 0 4px 10px;
+}
+#app .app .list .filters > li .clear-filters,
+#app .app .list .filters > li .change-filters {
+  padding: 7px 14px;
+  font-size: 13px;
+}
+#app .app .list .products {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 700px;
+  margin-left: 15px;
+}
+#app .app .list .products .dragAndDrop {
+  position: relative;
+  overflow: hidden;
+}
+#app .app .list .products .dragAndDrop.animate {
+  transition: transform 300ms ease-in-out;
+}
+#app .app .list .products .dragAndDrop.scale {
+  transform: scale(1.02);
+}
+#app .app .list .products .dragAndDrop.dragAndDrop-enter {
+  opacity: 0;
+  height: 0;
+}
+#app .app .list .products .dragAndDrop.dragAndDrop-enter.dragAndDrop-enter-active {
+  opacity: 1;
+  height: 232px;
+  transition: opacity 1s ease-in, height 1s ease-in;
+}
+#app .app .list .products .dragAndDrop.dragAndDrop-exit {
+  opacity: 1;
+  height: 232px;
+}
+#app .app .list .products .dragAndDrop.dragAndDrop-exit.dragAndDrop-exit-active {
+  opacity: 0;
+  height: 0;
+  transition: opacity 1s ease-in, height 1s ease-in;
+}
+#app .app .list .products .dragAndDrop .product {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 200px;
+  padding: 15px 50px 15px 30px;
+  border: 1px solid rgba(255, 115, 0, 0.3);
+  background-color: white;
+  transition: background-color 500ms ease-in-out 50ms;
+  border-radius: 20px;
+}
+#app .app .list .products .dragAndDrop .product.read {
+  background-color: #f8f5f5;
+}
+#app .app .list .products .dragAndDrop .product .title {
+  font-size: 20px;
+  font-weight: normal;
+  height: 35px;
+  font-family: "Didact Gothic", sans-serif;
+}
+#app .app .list .products .dragAndDrop .product .container {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+}
+#app .app .list .products .dragAndDrop .product .container .special-offers {
+  display: flex;
+  flex-direction: column;
+  min-height: 22px;
+  list-style: none;
+  font-family: "Didact Gothic", sans-serif;
+}
+#app .app .list .products .dragAndDrop .product .container .special-offers li {
+  height: 16px;
+  padding: 3px 10px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  font-size: 12px;
+}
+#app .app .list .products .dragAndDrop .product .container .special-offers li:not(:last-child) {
+  margin-right: 10px;
+}
+#app .app .list .products .dragAndDrop .product .container .special-offers .stock {
+  background-color: rgba(240, 98, 146, 0.1);
+  color: #f06292;
+}
+#app .app .list .products .dragAndDrop .product .container .special-offers .new-product {
+  background-color: rgba(0, 128, 255, 0.1);
+  color: #0080ff;
+}
+#app .app .list .products .dragAndDrop .product .container .special-offers .urgency {
+  background-color: rgba(26, 255, 102, 0.2);
+  color: #00e64d;
+}
+#app .app .list .products .dragAndDrop .product .container .prices {
+  position: relative;
+  width: 160px;
+  height: 100px;
+}
+#app .app .list .products .dragAndDrop .product .container .prices .rating {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#app .app .list .products .dragAndDrop .product .container .prices .rating .stars {
+  position: relative;
+  width: 105px;
+  height: 19px;
+}
+#app .app .list .products .dragAndDrop .product .container .prices .rating .stars .main-stars,
+#app .app .list .products .dragAndDrop .product .container .prices .rating .stars .estimated-stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 15px);
+  grid-gap: 5px;
+  width: 100px;
+  list-style: none;
+  margin-right: 5px;
+  height: 15px;
+  overflow: hidden;
+}
+#app .app .list .products .dragAndDrop .product .container .prices .rating .stars .main-stars polygon {
+  fill: #e9dcdc;
+}
+#app .app .list .products .dragAndDrop .product .container .prices .rating .stars .estimated-stars polygon {
+  fill: #feb909;
+}
+#app .app .list .products .dragAndDrop .product .container .prices .rating .stars .estimated-stars li:last-child {
+  overflow: hidden;
+}
+#app .app .list .products .dragAndDrop .product .container .prices .rating .count {
+  font-family: "PTSans", "Helvetica", "Arial", sans-serif;
+  font-weight: 600;
+}
+#app .app .list .products .dragAndDrop .product .container .prices .discount {
+  position: absolute;
+  top: 30px;
+  left: 0px;
+  display: flex;
+  align-items: center;
+  font-family: "PTSans", "Helvetica", "Arial", sans-serif;
+  font-size: 20px;
+}
+#app .app .list .products .dragAndDrop .product .container .prices .discount p {
+  color: lightgray;
+}
+#app .app .list .products .dragAndDrop .product .container .prices .discount p s {
+  color: black;
+  opacity: 0.8;
+  font-weight: 100;
+}
+#app .app .list .products .dragAndDrop .product .container .prices .discount .percent {
+  position: relative;
+  padding: 1px 5px 1px 2px;
+  margin-left: 17px;
+  background-color: rgba(255, 115, 0, 0.9);
+  font-size: 14px;
+  color: white;
+}
+#app .app .list .products .dragAndDrop .product .container .prices .discount .percent:before {
+  content: "";
+  border: 9px solid transparent;
+  border-right-color: rgba(255, 115, 0, 0.9);
+  position: absolute;
+  left: -18px;
+  top: 0;
+}
+#app .app .list .products .dragAndDrop .product .container .prices .price {
+  position: absolute;
+  top: 60px;
+  left: 0px;
+  font-family: "PTSans", "Helvetica", "Arial", sans-serif;
+  font-size: 38px;
+  font-weight: bold;
+}
+#app .app .list .products .dragAndDrop .product .container .about {
+  margin-left: 30px;
+  width: 350px;
+  height: 130px;
+  font-size: 14px;
+  font-weight: normal;
+  font-family: "Didact Gothic", sans-serif;
+  overflow: hidden;
+}
+#app .app .list .products .dragAndDrop .product .remove-product {
+  position: absolute;
+  right: 10px;
+  top: 15px;
+}
+#app .app .list .products .dragAndDrop .product .read-product {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  width: 30px;
+  height: 30px;
+}
+#app .app .list .products .dragAndDrop .product .read-product svg {
+  width: 30px;
+  height: 30px;
+}
+#app .app .list .products .dragAndDrop .product .read-product svg path {
+  fill: rgba(191, 191, 191, 0.8);
+  transition: fill 700ms ease-in-out 100ms;
+}
+#app .app .list .products .dragAndDrop .product .read-product:hover path {
+  fill: #d75a4a;
+}
+#app .app .list .add-products {
+  display: flex;
+  flex-direction: column;
+  width: min-content;
+  height: min-content;
+  margin-left: 15px;
+  padding: 20px 35px 20px 35px;
+  border: 1px solid rgba(255, 115, 0, 0.3);
+  background-color: white;
+  margin-bottom: 10px;
+  border-radius: 20px;
+}
+#app .app .list .add-products .hidden {
+  opacity: 0;
+}
+#app .app .list .add-products li:not(:last-child) {
+  margin-bottom: 20px;
+}
+#app .app .list .add-products .information {
+  display: flex;
+  justify-content: space-between;
+}
+#app .app .list .add-products .information .title {
+  width: min-content;
+  margin-right: 50px;
+}
+#app .app .list .add-products .information .title h3 {
+  margin-bottom: 20px;
+}
+#app .app .list .add-products .information .title textarea {
+  width: 250px;
+  height: 200px;
+  margin-top: 20px;
+  padding: 6px 0 4px 10px;
+  resize: none;
+}
+#app .app .list .add-products .information .title input[type="text"] {
+  width: 250px;
+}
+#app .app .list .add-products .price {
+  display: flex;
+  justify-content: space-between;
+}
+#app .app .list .add-products h3 {
+  font-family: "Andika", sans-serif;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+#app .app .list .add-products input[type="text"],
+#app .app .list .add-products input[type="number"] {
+  width: 200px;
+  margin-bottom: 10px;
+  padding: 6px 0 4px 10px;
+}
+#app .app .list .add-products .clear,
+#app .app .list .add-products .add-product {
+  padding: 7px 14px;
+  font-family: "PTSans", "Helvetica", "Arial", sans-serif;
+  font-size: 13px;
+}
+
